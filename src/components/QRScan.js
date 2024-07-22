@@ -47,7 +47,10 @@ const ScanQR = ({ title }) => {
   }, []);
 
   const sendMessageToMqtt = (message) => {
-    const client = mqtt.connect("wss://test.mosquitto.org:8081");
+    // const client = mqtt.connect("wss://test.mosquitto.org:8081");
+    const client = mqtt.connect("wss://192.168.1.23:8081", {
+      clean: true,
+    });
 
     client.on("connect", () => {
       console.log("Connected to MQTT broker");
@@ -67,7 +70,10 @@ const ScanQR = ({ title }) => {
   };
 
   useEffect(() => {
-    const client = mqtt.connect("wss://test.mosquitto.org:8081");
+    // const client = mqtt.connect("wss://test.mosquitto.org:8081");
+    const client = mqtt.connect("wss://192.168.1.23:8081", {
+      clean: true,
+    });
 
     client.on("connect", () => {
       console.log("Connected to MQTT broker");
